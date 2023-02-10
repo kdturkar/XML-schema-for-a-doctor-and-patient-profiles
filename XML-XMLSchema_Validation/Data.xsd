@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="Hospital">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Doctors"/>
+                <xs:element ref="Patients"/>
+                <xs:element ref="Appointments"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Doctors">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="Doctor"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Doctor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Doctor_Name"/>
+                <xs:element ref="DoctorContact"/>
+                <xs:element ref="DOB"/>
+                <xs:element ref="Specialization"/>
+                <xs:choice>
+                    <xs:element ref="AppointmentsInADay"/>
+                    <xs:element ref="PatientAppointments"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="D_Id" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Doctor_Name" type="xs:string"/>
+    <xs:element name="DoctorContact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="DoctorAddress"/>
+                <xs:element maxOccurs="unbounded" ref="DoctorPhone"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DoctorAddress" type="xs:string"/>
+    <xs:element name="DoctorPhone" type="xs:string"/>
+    <xs:element name="Specialization" type="xs:NCName"/>
+    <xs:element name="AppointmentsInADay">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="PatientAppointments">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="Patients">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="Patient"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Patient">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Patient_Name"/>
+                <xs:element ref="PatientContact"/>
+                <xs:element ref="DOB"/>
+                <xs:element ref="AttendedDoctor"/>
+                <xs:element ref="Illness"/>
+            </xs:sequence>
+            <xs:attribute name="P_Id" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Patient_Name" type="xs:string"/>
+    <xs:element name="PatientContact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="PatientAddress"/>
+                <xs:element maxOccurs="unbounded" ref="PatientPhone"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PatientAddress" type="xs:string"/>
+    <xs:element name="PatientPhone" type="xs:string"/>
+    <xs:element name="AttendedDoctor">
+        <xs:complexType>
+            <xs:attribute name="AttendedBy" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Illness" type="xs:string"/>
+    <xs:element name="Appointments">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="Appointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Appointment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="AppointedDoctor"/>
+                <xs:element ref="AppointedPatient"/>
+                <xs:element ref="AppointedDate"/>
+                <xs:element ref="AppointedTime"/>
+                <xs:element ref="PatientCondition"/>
+            </xs:sequence>
+            <xs:attribute name="AppointmentId" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AppointedDoctor">
+        <xs:complexType>
+            <xs:attribute name="AppointedDoctorId" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AppointedPatient">
+        <xs:complexType>
+            <xs:attribute name="AppointedPatientId" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AppointedDate">
+        <xs:complexType>
+            <xs:attribute name="AppointmentDate" use="required" type="xs:date"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AppointedTime">
+        <xs:complexType>
+            <xs:attribute name="AppointmentTime" use="required" type="xs:time"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PatientCondition" type="xs:NCName"/>
+    <xs:element name="DOB" type="xs:date"/>
+</xs:schema>

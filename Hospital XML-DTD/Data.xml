@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Data_Style.xsl"?>
+<!DOCTYPE Hospital SYSTEM "Data.dtd">
+<Hospital>
+    <Doctors>
+        <Doctor D_Id="01">
+            <Doctor_Name> Dr.Rajiv Chaudhary </Doctor_Name>
+            <DoctorContact>
+                <DoctorAddress>Chanakyapuri Building tukaram paduka chowk 1st floor , Pune - 411005</DoctorAddress>
+                <DoctorPhone>+919467346596/</DoctorPhone>
+                <DoctorPhone> +918467346592/</DoctorPhone>
+                <DoctorPhone> +918767346596</DoctorPhone>
+            </DoctorContact>
+            <DOB> 1975-06-01 </DOB>
+            <Specialization> Orthopedics </Specialization>
+            <AppointmentsInADay />
+        </Doctor>
+
+        <Doctor D_Id="02">
+            <Doctor_Name> Dr.Satish Yadav </Doctor_Name>
+            <DoctorContact>
+                <DoctorAddress>1160/61, University Rd, Revenue Colony, Shivajinagar , Pune - 411005</DoctorAddress>
+                <DoctorPhone>+918785588594/</DoctorPhone>
+                <DoctorPhone> +919785588594</DoctorPhone>
+            </DoctorContact>
+            <DOB> 1970-10-22 </DOB>
+            <Specialization> Ayurvedic </Specialization>
+            <PatientAppointments />
+        </Doctor>
+    </Doctors>
+
+    <Patients>
+        <Patient P_Id="01">
+            <Patient_Name> Prabha Rane </Patient_Name>
+            <PatientContact>
+                <PatientAddress>Shri Ram Nagar, Tumsar, Bhandara</PatientAddress>
+                <PatientPhone>+917785588594/</PatientPhone>
+                <PatientPhone> +919185588995</PatientPhone>
+            </PatientContact>
+            <DOB> 1988-06-09 </DOB>
+            <AttendedDoctor AttendedBy="Dr.Satish Yadav" />
+            <Illness> Chronic Disease </Illness>
+        </Patient>
+
+        <Patient P_Id="02">
+            <Patient_Name> Ravi Teja </Patient_Name>
+            <PatientContact>
+                <PatientAddress>Vinoba Nagar, Tumsar, Bhandara</PatientAddress>
+                <PatientPhone>+919785588594/</PatientPhone>
+                <PatientPhone> +919345558851</PatientPhone>
+            </PatientContact>
+            <DOB> 1987-06-03 </DOB>
+            <AttendedDoctor AttendedBy="Dr.Rajiv Chaudhary" />
+            <Illness> Diabeties </Illness>
+        </Patient>
+    </Patients>
+
+    <Appointments>
+        <Appointment AppointmentId="01">
+            <AppointedDoctor AppointedDoctorId="02" />
+            <AppointedPatient AppointedPatientId="01" />
+            <AppointedDate AppointmentDate="2023-02-12" />
+            <AppointedTime AppointmentTime="09:00:00" />
+            <PatientCondition>Serious</PatientCondition>
+        </Appointment>
+        <Appointment AppointmentId="02">
+            <AppointedDoctor AppointedDoctorId="01" />
+            <AppointedPatient AppointedPatientId="02" />
+            <AppointedDate AppointmentDate="2023-02-20" />
+            <AppointedTime AppointmentTime="10:00:00" />
+            <PatientCondition>Normal</PatientCondition>
+        </Appointment>
+    </Appointments>
+</Hospital>

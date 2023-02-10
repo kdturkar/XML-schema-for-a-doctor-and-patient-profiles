@@ -1,0 +1,113 @@
+<?xml encoding="utf-8"?>
+
+<!ELEMENT Hospital (Doctors,Patients,Appointments)>
+<!ATTLIST Hospital
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Doctors (Doctor)+>
+<!ATTLIST Doctors
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Patients (Patient)+>
+<!ATTLIST Patients
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Appointments (Appointment)+>
+<!ATTLIST Appointments
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Doctor (Doctor_Name,DoctorContact,DOB,Specialization,(AppointmentsInADay|PatientAppointments))>
+<!ATTLIST Doctor
+    xmlns CDATA #FIXED ''
+    D_Id CDATA #REQUIRED>
+
+<!ELEMENT Patient (Patient_Name,PatientContact,DOB,AttendedDoctor,Illness)>
+<!ATTLIST Patient
+    xmlns CDATA #FIXED ''
+    P_Id CDATA #REQUIRED>
+
+<!ELEMENT Appointment (AppointedDoctor,AppointedPatient,AppointedDate,AppointedTime,PatientCondition)>
+<!ATTLIST Appointment
+    xmlns CDATA #FIXED ''
+    AppointmentId CDATA #REQUIRED>
+
+<!ELEMENT Doctor_Name (#PCDATA)>
+<!ATTLIST Doctor_Name
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT DoctorContact (DoctorAddress,DoctorPhone+)>
+<!ATTLIST DoctorContact
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Specialization (#PCDATA)>
+<!ATTLIST Specialization
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT AppointmentsInADay EMPTY>
+<!ATTLIST AppointmentsInADay
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT PatientAppointments EMPTY>
+<!ATTLIST PatientAppointments
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT Patient_Name (#PCDATA)>
+<!ATTLIST Patient_Name
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT PatientContact (PatientAddress,PatientPhone+)>
+<!ATTLIST PatientContact
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT AttendedDoctor EMPTY>
+<!ATTLIST AttendedDoctor
+    xmlns CDATA #FIXED ''
+    AttendedBy CDATA #REQUIRED>
+
+<!ELEMENT Illness (#PCDATA)>
+<!ATTLIST Illness
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT AppointedDoctor EMPTY>
+<!ATTLIST AppointedDoctor
+    xmlns CDATA #FIXED ''
+    AppointedDoctorId CDATA #REQUIRED>
+
+<!ELEMENT AppointedPatient EMPTY>
+<!ATTLIST AppointedPatient
+    xmlns CDATA #FIXED ''
+    AppointedPatientId CDATA #REQUIRED>
+
+<!ELEMENT AppointedDate EMPTY>
+<!ATTLIST AppointedDate
+    xmlns CDATA #FIXED ''
+    AppointmentDate NMTOKEN #REQUIRED>
+
+<!ELEMENT AppointedTime EMPTY>
+<!ATTLIST AppointedTime
+    xmlns CDATA #FIXED ''
+    AppointmentTime NMTOKEN #REQUIRED>
+
+<!ELEMENT PatientCondition (#PCDATA)>
+<!ATTLIST PatientCondition
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT DoctorAddress (#PCDATA)>
+<!ATTLIST DoctorAddress
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT DoctorPhone (#PCDATA)>
+<!ATTLIST DoctorPhone
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT PatientAddress (#PCDATA)>
+<!ATTLIST PatientAddress
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT PatientPhone (#PCDATA)>
+<!ATTLIST PatientPhone
+    xmlns CDATA #FIXED ''>
+
+<!ELEMENT DOB (#PCDATA)>
+<!ATTLIST DOB
+    xmlns CDATA #FIXED ''>
